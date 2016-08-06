@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#share {
+				width: 200px;
+				height: 200px;
+				background-color: dodgerblue;
+				position: relative;
+				left: -200px;
+			}
+			
+			#share span {
+				display: block;
+				position: absolute;
+				width: 20px;
+				height: 50px;
+				top: 75px;
+				left: 200px;
+				background-color: limegreen;
+				color: #FFFFFF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="share">
+			<span id="share_btn">分享</span>
+		</div>
+	</body>
+	<script>
+		var share_btn=document.getElementById("share_btn");
+		share_btn.showid=null;
+		share_btn.backid=null;
+		var share=document.getElementById("share");
+		share_btn.onclick=function(){
+			share.style.left=-200+"px";
+			share_btn.showid=setInterval(function(){
+				var speed=Math.ceil((0-parseInt(share.style.left))/20);
+				share.style.left=parseInt(share.style.left)+speed+"px";
+				if(parseInt(share.style.left)>=0){
+					clearInterval(share_btn.showid);
+				}
+			},10);
+		};
+		
+		share_btn.onmouseout=function(){
+			share.style.left=0+"px";
+			share_btn.backid=setInterval(function(){
+				var speed=Math.floor((-200-parseInt(share.style.left))/20);
+				share.style.left=parseInt(share.style.left)+speed+"px";
+				if(parseInt(share.style.left)<=-200){
+					clearInterval(share_btn.backid);
+				}
+			},10);
+		};
+	</script>
+
+</html>

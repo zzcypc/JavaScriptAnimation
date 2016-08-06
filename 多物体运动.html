@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul,
+			li {
+				list-style: none;
+				width: 200px;
+				height: 50px;
+				background-color: #1E90FF;
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+	<script>
+		var items = document.getElementsByTagName('li');
+		for(var i = 0; i < items.length; i++) {
+			items[i].onmouseover=function(){
+				startMove(this,500);
+			}
+			items[i].onmouseout=function(){
+				startMove(this,200);	
+			}
+
+		}
+	var timer=0;
+		function startMove(obj, iTarget) {
+			clearInterval(obj.timer);
+			obj.timer = setInterval(function() {
+				var speed = (iTarget - obj.offsetWidth) / 8;
+				speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+				if(iTarget==obj.offsetWidth){
+					clearInterval(obj.timer);
+				}else{
+					obj.style.width=obj.offsetWidth+speed+"px";
+				}
+				//console.log(obj.offsetWidth+" "+speed);
+			}, 30);
+		}
+	</script>
+
+</html>

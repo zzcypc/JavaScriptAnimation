@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#menu {
+				width: 500px;
+				margin: 100px auto;
+			}
+			
+			#menu ul li {
+				list-style: none;
+				display: inline-block;
+				width: 70px;
+				height: 70px;
+				background-color: lemonchiffon;
+			}
+			
+			#menu a {
+				color: #3C3C3C;
+				display: block;
+				text-align: center;
+				text-decoration: none;
+			}
+			
+			#menu p {
+				color: #666;
+			}
+			
+			.btn {
+				background-image: url(img/btn.png);
+				display: inline-block;
+				margin-top: 12px;
+				width: 24px;
+				height: 24px;
+				position: relative;
+			}
+			
+			.btn1 .btn {
+				background-position: 0 0;
+			}
+			
+			.btn2 .btn {
+				background-position: 0 -44px;
+			}
+			
+			.btn3 .btn {
+				background-position: 0 -88px;
+			}
+			
+			.btn4 .btn {
+				background-position: 0 -132px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="menu">
+			<ul>
+				<li class="btn1">
+					<a href="#">
+						<span class="btn"></span>
+						<p>充话费</p>
+					</a>
+				</li>
+				<li class="btn2">
+					<a href="#">
+						<span class="btn"></span>
+						<p>游戏</p>
+					</a>
+				</li>
+				<li class="btn3">
+					<a href="#">
+						<span class="btn"></span>
+						<p>旅行</p>
+					</a>
+
+				</li>
+				<li class="btn4">
+					<a href="#">
+						<span class="btn"></span>
+						<p>保险</p>
+					</a>
+				</li>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+	<script>
+		$(function(){
+			$('#menu a').mouseenter(function(){
+				$(this).find('span').animate({top:"-35px",opacity:"0"},300,function(){
+					$(this).css({top:"30px"});
+					$(this).animate({top:"0px",opacity:"1"},200);
+				})
+			})
+		})
+	</script>
+</html>
